@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
+from .forms import ChoiseForm
 def home(request):
     ctg = Category.objects.all()
     product = Product.objects.all()
@@ -20,6 +21,22 @@ def products(request, slug=None):
 def register(request):
     ctx={}
     return render(request,'register.html',ctx)
-def single(request):
-    ctx={}
+def single(request, pk=None):
+    ctg = Category.objects.all()
+    product_pk = Product.objects.get(pk=pk)
+    form = ChoiseForm()
+    if request.POST:
+        forms = ChoiseForm(request.POST or None, request.FILES or None)
+        if forms.is_valid():
+            root=forms.save()
+            root=Buy.objects.get(pk=root.id)
+            root.product=product_pk
+            root.save()
+            return redirect('home')
+        else:
+            print(forms.errors)
+
+    ctx={'ctg': ctg,
+         'product_pk':product_pk,
+         'form':form}
     return render(request,'single.html',ctx)

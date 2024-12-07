@@ -5,3 +5,4 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 admin.site.register(Category, ProductAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(Buy)
