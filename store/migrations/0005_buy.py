@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('how', models.CharField(choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')], max_length=100)),
                 ('map', models.TextField()),
                 ('email', models.EmailField(blank=True, max_length=254)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='store.product')),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='store.product',null=True)),
             ],
         ),
     ]

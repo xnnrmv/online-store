@@ -1,8 +1,9 @@
 from django import forms
 from .models import Buy
 
+
 class ChoiseForm(forms.ModelForm):
     class Meta:
         model = Buy
-        exclude =['product']
+        exclude = ['product']
         fields = '__all__'

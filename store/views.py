@@ -21,15 +21,16 @@ def products(request, slug=None):
 def register(request):
     ctx={}
     return render(request,'register.html',ctx)
-def single(request, pk=None):
+def single(requests, pk=None):
     ctg = Category.objects.all()
     product_pk = Product.objects.get(pk=pk)
     form = ChoiseForm()
-    if request.POST:
-        forms = ChoiseForm(request.POST or None, request.FILES or None)
+    if requests.POST:
+        forms = ChoiseForm(requests.POST or None,
+                           requests.FILES or None)
         if forms.is_valid():
             root=forms.save()
-            root=Buy.objects.get(pk=root.id)
+            root=Buy.objects.get(pk=root.pk)
             root.product=product_pk
             root.save()
             return redirect('home')
@@ -39,4 +40,4 @@ def single(request, pk=None):
     ctx={'ctg': ctg,
          'product_pk':product_pk,
          'form':form}
-    return render(request,'single.html',ctx)
+    return render(requests,'single.html',ctx)

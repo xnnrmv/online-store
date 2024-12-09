@@ -43,7 +43,7 @@ class Product(models.Model):
 class Buy(models.Model):
     name = models.CharField(max_length=200)
     phone = models.CharField(max_length=40)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     All_size=(
         ('36','36'),
         ('37', '37'),
