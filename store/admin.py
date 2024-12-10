@@ -6,4 +6,5 @@ class ClientAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, ClientAdmin)
 admin.site.register(Product, ClientAdmin)
+
 admin.site.register(Buy)

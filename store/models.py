@@ -75,5 +75,7 @@ class Buy(models.Model):
     map = models.TextField()
     email = models.EmailField(blank=True)
 
+
     def __str__(self):
         return f"Sotib oluvchi: {self.name}, Mahsulot: {self.product}"
+

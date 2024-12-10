@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+
 from unicodedata import category
 
 from .forms import ChoiseForm
@@ -41,3 +42,4 @@ def single(request, pk=None):
            'product_pk': product_pk,
            'form': form}
     return render(request, 'single.html', ctx)
+
