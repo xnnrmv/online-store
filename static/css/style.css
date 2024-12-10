@@ -1883,3 +1883,15 @@ div textarea {
         height: 250px;
     }
 }
+.img img {
+    width: 100%;       /* Kenglikni to'liq o'zgartirish */
+    height: 200px;     /* Belirli bo'y o'lchamini berish */
+    object-fit: cover; /* Rasmni xohlagan ko'rinishda kesish */
+}
+
+/* Agar rasmlar o'zgaruvchan o'lchamda bo'lsa, maxsus kenglik va balandlikni belgilash */
+.gri-wid {
+    width: 100%;
+    height: 200px; /* O'zgartiring, kerakli o'lchamni kiriting */
+    object-fit: cover;
+}
